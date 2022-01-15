@@ -1,5 +1,4 @@
 package test.java.datastructures;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import main.java.datastructures.LinkedList;
