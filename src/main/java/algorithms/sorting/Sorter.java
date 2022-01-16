@@ -3,7 +3,7 @@ package main.java.algorithms.sorting;
 import java.util.Arrays;
 
 /**
- *
+ * Utility class with implementations of common sorting algorithms
  */
 public class Sorter {
     /**
