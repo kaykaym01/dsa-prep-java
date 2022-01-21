@@ -46,6 +46,116 @@ public class LinkedList {
         size++;
     }
 
+    /**
+     * Inserts new node with value data at index index
+     * @param data the value of the new node
+     * @param index the index to insert the new node
+     */
+    public void insertAtIndex(int data, int index){
+
+        // insert at beginning index
+        if (index == 0 || head == null) {
+            insertAtHead(data);
+            return;
+        }
+        if (index >= size){
+            insertAtEnd(data);
+            return;
+        }
+
+        int i = 0;
+        Node currNode = head;
+        // insert at index or at end if index > size of linkedlist
+        while (i < index-1 && currNode.next != null){
+            currNode = currNode.next;
+            i++;
+        }
+        Node newNode = new Node(data);
+        newNode.next = currNode.next;
+        currNode.next = newNode;
+        size++;
+    }
+
+    /**
+     * Deletes the node at the head of the LinkedList
+     */
+    public void deleteAtHead(){
+        if (!isEmpty()){
+            head = head.next;
+        }
+        size--;
+    }
+
+    /**
+     * Deletes the node at the end of the LinkedList
+     */
+    public void deleteAtEnd(){
+        if (!isEmpty()){
+            Node prevNode = null;
+            Node currNode = head;
+            while (currNode.next != null){
+                prevNode = currNode;
+                currNode = currNode.next;
+            }
+            prevNode.next = null;
+        }
+        size--;
+    }
+
+    /**
+     * Deletes the node with value n in LinkedList
+     * @param value the value to be removed from the list
+     */
+    public void delete(int value){
+        if (isEmpty()){ return;}
+
+        Node currNode = head;
+        if (currNode.data == value) {
+            deleteAtHead();
+            size--;
+            return;
+        }
+
+        while (currNode.next != null){
+            if (currNode.next.data == value){
+                currNode.next = currNode.next.next;
+                size--;
+            }
+            currNode = currNode.next;
+        }
+    }
+
+    /**
+     * Deletes node i from the LinkedList
+     * @param index the index of the node to be removed from the list
+     */
+    public void deleteAtIndex(int index){
+        if (index == 0){
+            deleteAtHead();
+            size--;
+            return;
+        }
+
+        Node currNode = head;
+        int i = 1;
+        while (i < index && currNode.next != null){
+            currNode = currNode.next;
+            i++;
+        }
+
+        currNode.next = currNode.next.next;
+        size--;
+    }
+
+    /**
+     * Checks if value n is in the linked list
+     * @param n the value to search for
+     * @return true if n in linked list, false if otherwise
+     */
+    public boolean contains(int n){
+        return false;
+    }
+
     @Override
     public String toString(){
         StringBuilder result = new StringBuilder();
