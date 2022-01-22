@@ -104,4 +104,18 @@ public class LinkedListTest {
         expectedResult = "{1 -> 2}";
         assertEquals(expectedResult, ll.toString());
     }
+
+    @Test
+    void insertUsingRecursionTest(){
+        assertEquals(0, ll.getSize());
+        ll.insertAtEnd(0);
+        ll.insertAtEnd(1);
+        ll.insertAtEnd(2);
+        ll.insertAtEnd(3);
+        ll.insertAtEnd(4);
+
+        ll.insertUsingRecursion(24, 3);
+        String expectedResult = "{0 -> 1 -> 2 -> 24 -> 3 -> 4}";
+        assertEquals(expectedResult, ll.toString());
+    }
 }

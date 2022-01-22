@@ -180,6 +180,21 @@ public class LinkedList {
         return size;
     }
 
+    public void insertUsingRecursion(int value, int index){
+        head = insertUsingRecursion(index, value, head);
+    }
+
+    private Node insertUsingRecursion(int index, int value, Node nextNode){
+        if (index == 0){
+            Node newNode = new Node(value);
+            newNode.next = nextNode;
+            size++;
+            return newNode;
+        }
+        nextNode.next = insertUsingRecursion(--index, value, nextNode.next);
+        return nextNode;
+    }
+
     /**
      * Simple class to represent a Node in the LinkedList
      */
