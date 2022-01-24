@@ -172,6 +172,24 @@ public class LinkedList {
         return result.toString();
     }
 
+
+    public void insertAt(int index, int value){
+        head = insertAtRecursive(index, value, head);
+    }
+
+    private Node insertAtRecursive(int index, int value, Node curr){
+        // base case: if index == 0
+        if (index == 0 || curr == null){
+            Node newNode = new Node(value);
+            newNode.next = curr;
+            return newNode;
+        }
+
+        // if index is not 0, keep going
+        curr.next =  insertAtRecursive(--index, value, curr.next);
+        return curr;
+    }
+
     /**
      * Gets the size of the Linked List
      * @return An integer representing the size of the linked list
